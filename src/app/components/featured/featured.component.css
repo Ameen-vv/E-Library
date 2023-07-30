@@ -1,0 +1,11 @@
+/* Define the scrollbar-hide class to hide the scrollbar */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Optional: If you want to hide the scrollbar for other browsers */
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  

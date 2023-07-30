@@ -1,0 +1,39 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="container p-4">
+    <div class="justify-start">
+        <h1 class="mt-8 text-xl ml-7 font-bold">Products</h1>
+      </div>
+    
+      <!-- Options -->
+      <div class="flex flex-wrap items-center ml-4">
+        <div class="flex items-center justify-start text-sm md:w-24 h-10 mt-10 text-white bg-black ml-7 w-28 sm:ml-4 p-4">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            class="w-5 h-5 ">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <span class="ml-2 font-light">Filter</span>
+        </div>
+        <div class="w-px h-10 mx-4 mt-10 bg-black"></div>
+    
+        <div class="flex items-center mt-10">
+          <i class="mt-2 ml-2 text-gray-600 fas fa-th-large fa-2x"></i>
+          <i class="mt-2 ml-2 text-gray-600 fas fa-list fa-lg fa-2x"></i>
+        </div>
+    
+        <div class="flex items-center mt-10 ml-auto">
+          <h1 class="md:mr-2 text-md font-bold mr-10">Sort By:</h1>
+          <a href="#" class="relative md:mr-4 text-black mr-24 hover:text-gray-600 text-md" id="alphabet">
+            Alphabetically, A-Z <i class="fas fa-chevron-down dropdown-icon"></i>
+          </a>
+        </div>
+      </div>
+    
+    
+      <hr class="w-full mt-6 border-t border-black">
+    <div class="flex flex-wrap justify-center mt-5">
+        <app-product-card *ngFor="let product of products" [book]="product"></app-product-card>
+      </div>
+</div>
+
+<app-footer></app-footer>
