@@ -1,77 +1,28 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
+import { HotToastService } from '@ngneat/hot-toast';
 import { BookCard } from 'src/app/models/bookModels';
+import { BookService } from 'src/app/services/book.service';
 
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css']
 })
-export class ProductListComponent {
-  products:BookCard[] = [
-    {
-    title: "Designing Across Senses",
-    subtitle: "A Multimodal Approach to Product Design",
-    isbn13: "9781491954249",
-    price: "$27.59",
-    image: "https://itbook.store/img/books/9781491954249.png",
-    url: "https://itbook.store/books/9781491954249"
-  },
-  {
-    title: "Designing Across Senses",
-    subtitle: "A Multimodal Approach to Product Design",
-    isbn13: "9781491954249",
-    price: "$27.59",
-    image: "https://itbook.store/img/books/9781491954249.png",
-    url: "https://itbook.store/books/9781491954249"
-  },
-  {
-    title: "Designing Across Senses",
-    subtitle: "A Multimodal Approach to Product Design",
-    isbn13: "9781491954249",
-    price: "$27.59",
-    image: "https://itbook.store/img/books/9781491954249.png",
-    url: "https://itbook.store/books/9781491954249"
-  },
-  {
-    title: "Designing Across Senses",
-    subtitle: "A Multimodal Approach to Product Design",
-    isbn13: "9781491954249",
-    price: "$27.59",
-    image: "https://itbook.store/img/books/9781491954249.png",
-    url: "https://itbook.store/books/9781491954249"
-  },
-  {
-    title: "Designing Across Senses",
-    subtitle: "A Multimodal Approach to Product Design",
-    isbn13: "9781491954249",
-    price: "$27.59",
-    image: "https://itbook.store/img/books/9781491954249.png",
-    url: "https://itbook.store/books/9781491954249"
-  },
-  {
-    title: "Designing Across Senses",
-    subtitle: "A Multimodal Approach to Product Design",
-    isbn13: "9781491954249",
-    price: "$27.59",
-    image: "https://itbook.store/img/books/9781491954249.png",
-    url: "https://itbook.store/books/9781491954249"
-  },
-  {
-    title: "Designing Across Senses",
-    subtitle: "A Multimodal Approach to Product Design",
-    isbn13: "9781491954249",
-    price: "$27.59",
-    image: "https://itbook.store/img/books/9781491954249.png",
-    url: "https://itbook.store/books/9781491954249"
-  },
-  {
-    title: "Designing Across Senses",
-    subtitle: "A Multimodal Approach to Product Design",
-    isbn13: "9781491954249",
-    price: "$27.59",
-    image: "https://itbook.store/img/books/9781491954249.png",
-    url: "https://itbook.store/books/9781491954249"
-  },
-]
-
+export class ProductListComponent implements OnInit {
+  products!:BookCard[];
+  loader:boolean = false;
+  constructor(private bookService : BookService,private toast : HotToastService){}; 
+  ngOnInit(): void {
+      this.loader = true;
+      this.bookService.getAllBooks().subscribe(
+        (response) =>{
+          this.products = response.data;
+        },
+        (error) => {
+          this.toast.error(error)
+        },
+        () => {
+          this.loader = false;
+        }
+     )}
 }

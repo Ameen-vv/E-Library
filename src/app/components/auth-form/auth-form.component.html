@@ -19,7 +19,7 @@
     <div>
       <button type="submit" class="w-full py-3 text-sm font-semibold text-white flex justify-center items-center  rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" [disabled]="loader" [ngClass]="{'bg-black' : !loader,'bg-gray-800' : loader }">
         <span *ngIf="loader">
-          <app-loader></app-loader> 
+          <app-loader [size]="5"></app-loader> 
         </span>
         <span *ngIf="!loader">Click Me</span>
       </button>

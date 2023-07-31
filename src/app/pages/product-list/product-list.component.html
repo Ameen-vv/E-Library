@@ -31,9 +31,12 @@
     
     
       <hr class="w-full mt-6 border-t border-black">
-    <div class="flex flex-wrap justify-center mt-5">
+    <div class="flex flex-wrap justify-center mt-5" *ngIf="!loader">
         <app-product-card *ngFor="let product of products" [book]="product"></app-product-card>
-      </div>
+    </div>
+    <div class="flex flex-wrap justify-center items-center mt-5 h-[70vh]" *ngIf="loader">
+        <app-loader></app-loader>
+    </div>
 </div>
 
 <app-footer></app-footer>
