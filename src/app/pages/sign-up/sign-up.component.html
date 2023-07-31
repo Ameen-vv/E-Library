@@ -1,9 +1,9 @@
 <app-nav-bar [bgDark]="true"></app-nav-bar>
-<div class="min-h-screen flex  justify-center bg-gray-950">
-    <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md md:mt-12 h-1/2">
+<div class="min-h-screen flex  justify-center bg-black pt-12">
+    <div class="max-w-md w-full p-6 bg-white rounded-lg shadow-md md:mt-12 h-1/2 ">
       <h2 class="mb-6 text-center text-3xl font-bold text-black font-dance">
         Sign up
       </h2>
-      <app-auth-form formType="signUp"></app-auth-form>
+      <app-auth-form formType="signUp" (formSubmit)="signUp($event)" [loader]="loader"></app-auth-form>
     </div>
 </div>
