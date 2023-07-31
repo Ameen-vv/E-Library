@@ -3,6 +3,8 @@ import { HotToastService } from '@ngneat/hot-toast';
 import {Router } from '@angular/router'
 import { UserRegister } from 'src/app/models/userModels';
 import { UserService } from 'src/app/services/user.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -10,22 +12,20 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
-  
-  constructor(private toast:HotToastService,private userService : UserService,private router : Router) {};
+  authForm:FormGroup;
+  constructor(private toast:HotToastService,private userService : UserService,private router : Router,private formBuilder : FormBuilder) {
+    this.authForm = formBuilder.group({
+      name:['',Validators.required],
+      email:['',Validators.compose([Validators.required, Validators.email])],
+      password:['',Validators.required],
+      confirmPass:['',Validators.required]
+    })
+  };
   
   loader:boolean = false;
 
   signUp(user:UserRegister):void{
-    let {name,email,password,confirmPass} = user;
-    if(!name.trim() || !email.trim() || !password.trim() || !confirmPass.trim()){
-      this.toast.error('Every field is required');
-      return;
-    };
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!emailPattern.test(email)) {
-      this.toast.error('Please enter a valid email address.');
-      return;
-    };
+    let {password,confirmPass} = user;
     if(password !== confirmPass){
       this.toast.error('enter matching passwords');
       return;

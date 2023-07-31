@@ -1,18 +1,18 @@
 export interface User{
-    name:string,
-    email:string,
-    cart?:[]
+    name:string;
+    email:string;
+    cart?:[];
 }
 
 
 export interface UserRegister{
-    name:string,
-    email:string,
-    password:string,
-    confirmPass:string
+    name:string;
+    email:string;
+    password:string;
+    confirmPass:string;
 }
 
 export interface UserSignIn{
-    email:string,
-    password:string
+    email:string;
+    password:string;
 }

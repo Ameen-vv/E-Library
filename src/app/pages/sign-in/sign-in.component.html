@@ -4,6 +4,6 @@
       <h2 class="mb-6 text-center text-3xl font-bold text-black font-dance">
         Sign In
       </h2>
-      <app-auth-form formType="signIn" (formSubmit)="userLogIn($event)" [loader]="loader"></app-auth-form>
+      <app-auth-form formType="signIn" (formSubmit)="userLogIn($event)" [loader]="loader" [formTemplate]="authForm"></app-auth-form>
     </div>
 </div>
