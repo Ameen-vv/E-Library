@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CartModel, User, UserRegister, UserSignIn } from '../models/userModels';
 import {HttpClient} from '@angular/common/http'
-import {Observable, flatMap} from 'rxjs';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
