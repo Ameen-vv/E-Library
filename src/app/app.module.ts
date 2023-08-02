@@ -22,6 +22,7 @@ import { ErrorHandlerService } from './interceptors/errorHandler/error-handler.s
 import { LoaderComponent } from './components/loader/loader.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { AuthenticationService } from './interceptors/auth/authentication.service';
+import { BulletinPipe } from './pipes/bulletin.pipe';
 
 
 
@@ -40,7 +41,8 @@ import { AuthenticationService } from './interceptors/auth/authentication.servic
     FeaturedComponent,
     FooterComponent,
     LoaderComponent,
-    CartComponent
+    CartComponent,
+    BulletinPipe
   ],
   imports: [
     BrowserModule,

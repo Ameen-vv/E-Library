@@ -1,75 +1,62 @@
 <app-nav-bar></app-nav-bar>
-<div class="card w-full">
-  <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ">
-    <div class="cart col-span-2 p-12">
+<div class="card w-full min-h-[70vh]">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-4  ">
+    <div class="cart col-span-2 p-12 ">
       <div class="title">
         <div class="flex items-center justify-between">
           <h4 class="font-bold">Shopping Cart</h4>
           <div class="text-right text-muted">3 items</div>
         </div>
       </div>
-      <div class="border-t border-b">
-        <div class="flex items-center">
-          <div class="w-1/6">
-            <img class="w-full" src="https://i.imgur.com/1GrakTl.jpg">
-          </div>
-          <div class="w-4/6">
-            <div class="text-muted">Shirt</div>
-            <div class="mt-1">Cotton T-shirt</div>
-          </div>
-          <div class="w-1/6">
-            <a href="#" class="border px-2">-</a>
-            <a href="#" class="border px-2">1</a>
-            <a href="#" class="border px-2">+</a>
-          </div>
-          <div class="w-1/6 flex ms-1">&euro; 44.00</div>
+      <ng-container *ngIf="!loader">
+        <div class="flex h-full md:h-96 w-full justify-center items-center" *ngIf="cart.length <= 0">
+          <h1 class="text-2xl font-medium">Your Cart is Empty</h1>
         </div>
+      </ng-container>
+      <div class="w-full flex h-96 justify-center items-center" *ngIf="loader">
+        <app-loader [size] = "10"></app-loader>
       </div>
-
-      <div class="border-t border-b">
-        <div class="flex items-center">
-          <div class="w-1/6">
-            <img class="w-full" src="https://i.imgur.com/ba3tvGm.jpg">
+      <ng-container *ngIf="!loader" >
+        <div class="border-t border-b mb-2 overflow-x-auto " *ngFor="let item of cart" >
+          <div class="flex flex-col sm:flex-row items-center">
+            <div class="w-full sm:w-1/6 mb-2 sm:mb-0 sm:mr-4">
+              <img class="w-full" [src]="item.product.image">
+            </div>
+            <div class="w-full sm:w-4/6 mb-2 sm:mb-0">
+              <div class="text-muted">{{item.product.title}}</div>
+            </div>
+            <div class="w-full sm:w-1/6 flex items-center justify-center sm:justify-end">
+              <button class="border px-2 me-1 cursor-pointer" (click)='decrementPro(item.product._id)'>-</button>
+              <a class="border px-2">{{item.quantity}}</a>
+              <button class="border px-2 ms-1 cursor-pointer" (click)='incrementPro(item.product._id)'>+</button>
+            </div>
+            <div class="w-full sm:w-1/6 flex items-center justify-center sm:justify-end">
+              {{item.product.price | currency : 'INR'}} <span class="close cursor-pointer font-bold text-md text-color5" (click)="removeCartItem(item.product._id)">&#10005;</span>
+            </div>
           </div>
-          <div class="w-4/6">
-            <div class="text-muted">Shirt</div>
-            <div class="mt-1">Cotton T-shirt</div>
-          </div>
-          <div class="w-1/6">
-            <a href="#" class="border px-2">-</a>
-            <a href="#" class="border px-2">1</a>
-            <a href="#" class="border px-2">+</a>
-          </div>
-          <div class="w-1/6">&euro; 44.00 <span class="close">&#10005;</span></div>
         </div>
-      </div>
+      </ng-container>
+      
+      
 
-      <div class="back-to-shop mt-4"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+      <div class="back-to-shop mt-4 "><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
     </div>
 
-    <div class="summary h-full">
+    <div class="summary bg-slate-100 h-full">
       <div>
-        <h5 class="font-bold">Summary</h5>
+        <h5 class="font-bold ">Summary</h5>
       </div>
       <hr class="my-2">
 
-      <div class="flex justify-between">
-        <div class="w-1/2">ITEMS 3</div>
-        <div class="w-1/2 text-right">&euro; 132.00</div>
+      <div class="flex justify-between" *ngFor = "let i of cart">
+        <div class="w-1/2 text-sm  overflow-hidden font-medium">{{i.product.title | bulletin}}</div>
+        <div class="w-1/2 text-right text-sm font-medium"> + {{i.quantity * i.product.price | currency : 'INR'}} </div>
       </div>
 
-      <form class="my-2">
-        <p>SHIPPING</p>
-        <select class="text-muted">
-          <option>Standard-Delivery- &euro;5.00</option>
-        </select>
-        <p>GIVE CODE</p>
-        <input id="code" placeholder="Enter your code" class="w-full">
-      </form>
 
       <div class="flex justify-between mt-2 border-t border-gray-300 py-2">
-        <div class="w-1/2">TOTAL PRICE</div>
-        <div class="w-1/2 text-right">&euro; 137.00</div>
+        <div class="w-1/2 font-semibold">TOTAL PRICE</div>
+        <div class="w-1/2 text-right font-bold">{{getTotal() | currency : 'INR'}}</div>
       </div>
 
       <button class="btn mt-4">CHECKOUT</button>

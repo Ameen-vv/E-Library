@@ -34,7 +34,7 @@ body{
     }
 }
 .summary{
-    background-color: #ddd;
+    
     border-top-right-radius: 1rem;
     border-bottom-right-radius: 1rem;
     padding: 4vh;
@@ -71,7 +71,6 @@ a{
 }
 .close{
     margin-left: auto;
-    font-size: 0.7rem;
 }
 img{
     width: 3.5rem;

@@ -34,7 +34,7 @@
         </button>
       </div>
       <div class="hidden md:flex text-xl " *ngIf="userLogged">
-       <ng-icon name="heroShoppingCart" class="hover:text-color5"></ng-icon>
+       <ng-icon name="heroShoppingCart" class="hover:text-color5" routerLink="/cart"></ng-icon>
        <ng-icon name="heroArrowRightOnRectangle" class="ms-8 hover:text-color5" (click)="logOut()"></ng-icon>
       </div>
      

@@ -2,9 +2,8 @@ export interface BookCard{
     _id?:string;
     title: string;
     subtitle: string;
-    price: string;
+    price: number;
     image: string;
-    url: string;
 }
 
 export interface BookDetails extends BookCard{

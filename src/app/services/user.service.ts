@@ -28,7 +28,12 @@ export class UserService {
   getCartItems():Observable<{data:CartModel[]}>{
     const url = `${this.baseUrl}getCartItems`;
     return this.http.get<{data:CartModel[]}>(url);
-  }
+  };
+
+  removeFromCart(proId : string,operation : 'del'| 'dec'):Observable<{ok:boolean,message:string,data:CartModel[]}>{
+    const url = `${this.baseUrl}removeCartItem/${proId}?operation=${operation}`;
+    return this.http.get<{ok:boolean,message:string,data:CartModel[]}>(url);
+  };
 
   checkToken():boolean{
     const token = localStorage.getItem('token');

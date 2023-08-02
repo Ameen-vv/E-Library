@@ -1,4 +1,4 @@
-import { BookDetails } from "./bookModels";
+import { BookCard } from "./bookModels";
 
 export interface User{
     name:string;
@@ -20,6 +20,7 @@ export interface UserSignIn{
 };
 
 export interface CartModel{
-    product:BookDetails;
+    product:BookCard;
     quantity:number;
+    _id:string;
 };
