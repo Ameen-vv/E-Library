@@ -20,6 +20,7 @@ import { FeaturedComponent } from './components/featured/featured.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ErrorHandlerService } from './interceptors/error-handler.service';
 import { LoaderComponent } from './components/loader/loader.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 
 
@@ -37,7 +38,8 @@ import { LoaderComponent } from './components/loader/loader.component';
     HeroSectionComponent,
     FeaturedComponent,
     FooterComponent,
-    LoaderComponent
+    LoaderComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,

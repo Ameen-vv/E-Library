@@ -5,6 +5,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CartComponent } from './pages/cart/cart.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'productPage/:id',
     component:ProductPageComponent
+  },
+  {
+    path:'cart',
+    component:CartComponent
   }
 ];
 

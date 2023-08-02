@@ -1,0 +1,79 @@
+<app-nav-bar></app-nav-bar>
+<div class="card pt-16 ">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ">
+    <div class="cart">
+      <div class="title">
+        <div class="flex items-center justify-between">
+          <h4 class="font-bold">Shopping Cart</h4>
+          <div class="text-right text-muted">3 items</div>
+        </div>
+      </div>
+      <div class="border-t border-b">
+        <div class="flex items-center">
+          <div class="w-1/6">
+            <img class="w-full" src="https://i.imgur.com/1GrakTl.jpg">
+          </div>
+          <div class="w-4/6">
+            <div class="text-muted">Shirt</div>
+            <div class="mt-1">Cotton T-shirt</div>
+          </div>
+          <div class="w-1/6">
+            <a href="#" class="border px-2">-</a>
+            <a href="#" class="border px-2">1</a>
+            <a href="#" class="border px-2">+</a>
+          </div>
+          <div class="w-1/6 flex ms-1">&euro; 44.00</div>
+        </div>
+      </div>
+
+      <div class="border-t border-b">
+        <div class="flex items-center">
+          <div class="w-1/6">
+            <img class="w-full" src="https://i.imgur.com/ba3tvGm.jpg">
+          </div>
+          <div class="w-4/6">
+            <div class="text-muted">Shirt</div>
+            <div class="mt-1">Cotton T-shirt</div>
+          </div>
+          <div class="w-1/6">
+            <a href="#" class="border px-2">-</a>
+            <a href="#" class="border px-2">1</a>
+            <a href="#" class="border px-2">+</a>
+          </div>
+          <div class="w-1/6">&euro; 44.00 <span class="close">&#10005;</span></div>
+        </div>
+      </div>
+
+      <div class="back-to-shop mt-4"><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
+    </div>
+
+    <div class="summary">
+      <div>
+        <h5 class="font-bold">Summary</h5>
+      </div>
+      <hr class="my-2">
+
+      <div class="flex justify-between">
+        <div class="w-1/2">ITEMS 3</div>
+        <div class="w-1/2 text-right">&euro; 132.00</div>
+      </div>
+
+      <form class="my-2">
+        <p>SHIPPING</p>
+        <select class="text-muted">
+          <option>Standard-Delivery- &euro;5.00</option>
+        </select>
+        <p>GIVE CODE</p>
+        <input id="code" placeholder="Enter your code" class="w-full">
+      </form>
+
+      <div class="flex justify-between mt-2 border-t border-gray-300 py-2">
+        <div class="w-1/2">TOTAL PRICE</div>
+        <div class="w-1/2 text-right">&euro; 137.00</div>
+      </div>
+
+      <button class="btn mt-4">CHECKOUT</button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

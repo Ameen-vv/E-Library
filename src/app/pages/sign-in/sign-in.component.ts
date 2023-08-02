@@ -20,10 +20,9 @@ export class SignInComponent {
     })
   };
 
-  loader: boolean = false
+  loader: boolean = false;
 
   userLogIn(user: UserSignIn): void {
-    console.log('das')
     this.loader = true;
     this.userService.userSignIn(user).subscribe(
       (response) => {
