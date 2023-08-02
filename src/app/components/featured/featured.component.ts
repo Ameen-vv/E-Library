@@ -9,4 +9,5 @@ import { BookCard } from 'src/app/models/bookModels';
 export class FeaturedComponent {
   @Input() title!:string;
   @Input() books!:BookCard[];
+  @Input() loading:boolean = true;
 }

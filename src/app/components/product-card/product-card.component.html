@@ -6,11 +6,11 @@
     </div>
     <div class="p-4 flex flex-col ">
       <h2 class="mb-2 text-lg text-center h-14 overflow-hidden">{{book.title}}</h2>
-      <p class="font-semibold text-center text-gray-900 mt-1">{{book.price}}</p>
+      <p class="font-semibold text-center text-gray-900 mt-1">{{book.price | currency:'INR'}}</p>
       <hr class="my-4 border-t border-gray-300">
     </div>
   </div>
-  <button class="bg-black hover:bg-gray-800 text-white p-2 rounded w-11/12">
+  <button class="bg-black hover:bg-gray-800 text-white p-2 rounded w-11/12" (click)="addToCart(book._id)">
     add to cart
   </button>
 </div>

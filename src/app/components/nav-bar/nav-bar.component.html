@@ -14,27 +14,28 @@
       <div class="hidden w-full md:block md:w-auto self-center" id="navbar-default">
         <ul class="font-normal flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-whit">
           <li>
-            <a href="#" class="block py-2 pl-3 pr-4 rounded  md:p-0  " aria-current="page">Home</a>
+            <a routerLink="/" class="block py-2 pl-3 pr-4   md:p-0  hover:text-color5" aria-current="page">Home</a>
           </li>
           <li>
-            <a href="#" class="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0    dark:hover:text-white md:dnt">Products</a>
+            <a routerLink="/products" class="block py-2 pl-3 pr-4 rounded hover:text-color5 md:hover:bg-transparent md:border-0  md:p-0     md:dnt">Products</a>
           </li>
           <li>
-            <a href="#" class="block py-2 pl-3 pr-4 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0 ">About</a>
+            <a routerLink="/" class="block py-2 pl-3 pr-4 rounded hover:text-color5 md:hover:bg-transparent md:border-0  md:p-0 ">About</a>
           </li>
           
         </ul>
       </div>
       <div class="hidden md:flex" *ngIf="!userLogged">
-        <button class="bg-black p-2 px-4 text-white rounded-lg hover:bg-slate-800">
+        <button class="bg-black p-2 px-4 text-white rounded-lg hover:bg-slate-800" routerLink="/signUp">
           Register now
         </button>
-        <button class="bg-black p-2 px-4 text-white ms-2 rounded-lg hover:bg-slate-800">
+        <button class="bg-black p-2 px-4 text-white ms-2 rounded-lg hover:bg-slate-800" routerLink="/signIn">
           Log In
         </button>
       </div>
-      <div class="hidden md:flex text-xl" *ngIf="userLogged">
-       <ng-icon name="heroShoppingCart"></ng-icon>
+      <div class="hidden md:flex text-xl " *ngIf="userLogged">
+       <ng-icon name="heroShoppingCart" class="hover:text-color5"></ng-icon>
+       <ng-icon name="heroArrowRightOnRectangle" class="ms-8 hover:text-color5" (click)="logOut()"></ng-icon>
       </div>
      
     </div>

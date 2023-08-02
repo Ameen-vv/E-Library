@@ -1,4 +1,5 @@
 import { Component,Input } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,5 +8,10 @@ import { Component,Input } from '@angular/core';
 })
 export class NavBarComponent {
   @Input() bgDark!:boolean;
-  userLogged:boolean = true;
+  constructor(private userService : UserService){};
+  userLogged:boolean = this.userService.checkToken();
+  logOut(){
+    this.userService.logOut();
+    this.userLogged = this.userService.checkToken();
+  };
 }

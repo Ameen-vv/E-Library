@@ -17,9 +17,7 @@ export class ProductListComponent implements OnInit {
       this.bookService.getAllBooks().subscribe(
         (response) =>{
           this.products = response.data;
-        },
-        (error) => {
-          this.toast.error(error)
+          this.loader = false;
         },
         () => {
           this.loader = false;

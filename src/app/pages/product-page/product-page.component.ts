@@ -23,12 +23,6 @@ export class ProductPageComponent implements OnInit {
     this.bookService.getBookDetails(this.id).subscribe(
       (response) => {
         this.book = response.data;
-      },
-      (error) => {
-        console.log(error);
-      },
-      () =>{
-        this.loader = false;
       }
     )
     this.loader = false;

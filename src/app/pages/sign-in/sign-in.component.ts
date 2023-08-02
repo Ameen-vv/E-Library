@@ -33,12 +33,7 @@ export class SignInComponent {
           this.toast.error(response.message);
         };
       },
-      (error) => {
-        this.toast.error(error);
-      },
-      () => {
-        this.loader = false;
-      }
     );
+    this.loader = false;
   };
 }

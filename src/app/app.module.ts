@@ -4,7 +4,7 @@ import {FormsModule , ReactiveFormsModule} from '@angular/forms'
 import {HotToastModule} from '@ngneat/hot-toast'
 import { NgIconsModule } from '@ng-icons/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from'@angular/common/http';
-import { heroShoppingCart } from '@ng-icons/heroicons/outline'
+import { heroShoppingCart,heroArrowRightOnRectangle } from '@ng-icons/heroicons/outline'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -18,9 +18,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeroSectionComponent } from './components/hero-section/hero-section.component';
 import { FeaturedComponent } from './components/featured/featured.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ErrorHandlerService } from './interceptors/error-handler.service';
+import { ErrorHandlerService } from './interceptors/errorHandler/error-handler.service';
 import { LoaderComponent } from './components/loader/loader.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { AuthenticationService } from './interceptors/auth/authentication.service';
 
 
 
@@ -46,7 +47,7 @@ import { CartComponent } from './pages/cart/cart.component';
     AppRoutingModule,
     FormsModule,
     HotToastModule.forRoot(),
-    NgIconsModule.withIcons({ heroShoppingCart }),
+    NgIconsModule.withIcons({ heroShoppingCart,heroArrowRightOnRectangle }),
     HttpClientModule,
     ReactiveFormsModule
   ],
@@ -54,6 +55,11 @@ import { CartComponent } from './pages/cart/cart.component';
     {
       provide:HTTP_INTERCEPTORS,
       useClass:ErrorHandlerService,
+      multi:true
+    },
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthenticationService,
       multi:true
     }
   ],

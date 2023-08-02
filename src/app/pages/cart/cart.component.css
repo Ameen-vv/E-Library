@@ -11,9 +11,7 @@ body{
     margin-bottom: 5vh;
 }
 .card{
-    margin: auto;
-    max-width: 950px;
-    width: 100%;
+
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     border-radius: 1rem;
     border: transparent;
@@ -25,7 +23,6 @@ body{
 }
 .cart{
     background-color: #fff;
-    padding: 4vh 5vh;
     border-bottom-left-radius: 1rem;
     border-top-left-radius: 1rem;
 }
