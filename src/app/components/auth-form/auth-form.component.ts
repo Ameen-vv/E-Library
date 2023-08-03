@@ -14,9 +14,6 @@ export class AuthFormComponent {
   @Input() formTemplate!:FormGroup;
   @Output() formSubmit = new EventEmitter();
 
-  
-  
-
   onSubmit(): void {
     
     if (this.formType === 'signUp') {
