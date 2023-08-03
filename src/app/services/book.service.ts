@@ -7,7 +7,7 @@ import { BookCard, BookDetails } from '../models/bookModels';
   providedIn: 'root'
 })
 export class BookService {
-  private baseUrl:string = 'http://localhost:2000/book/';
+  private baseUrl:string = 'https://elibrary-server.onrender.com/book/';
   constructor(private http : HttpClient) { };
 
   getAllBooks():Observable<{data:BookCard[]}>{

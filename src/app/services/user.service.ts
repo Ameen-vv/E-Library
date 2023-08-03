@@ -7,7 +7,7 @@ import {Observable, flatMap} from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-  private baseUrl:string = 'http://localhost:2000/user/';
+  private baseUrl:string = 'https://elibrary-server.onrender.com/user/';
   constructor(private http :HttpClient) { }
 
   userSignUp(user:UserRegister):Observable<{registration:boolean,token?:string,message:string}>{  
