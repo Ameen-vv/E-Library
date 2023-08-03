@@ -28,12 +28,16 @@ export class SignInComponent {
       (response) => {
         if (response.logIn) {
           response.token && localStorage.setItem('token', response.token);
+          this.loader = false;
           this.router.navigate(['/']);
         } else {
+          this.loader = false;
           this.toast.error(response.message);
         };
       },
+      ()=>{
+        this.loader = false;
+      }
     );
-    this.loader = false;
   };
 }

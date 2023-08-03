@@ -10,7 +10,10 @@
       <hr class="my-4 border-t border-gray-300">
     </div>
   </div>
-  <button class="bg-black hover:bg-gray-800 text-white p-2 rounded w-11/12" (click)="addToCart(book._id)">
+  <button class="bg-black hover:bg-gray-800 text-white p-2 rounded w-11/12" (click)="addToCart(book._id)" *ngIf="!loader">
     add to cart
+  </button>
+  <button class="bg-gray-800 text-white p-2 rounded w-11/12 flex justify-center items-center" disabled *ngIf="loader">
+    <app-loader [size]="5"></app-loader>
   </button>
 </div>
