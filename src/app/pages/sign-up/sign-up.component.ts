@@ -34,12 +34,16 @@ export class SignUpComponent {
     this.userService.userSignUp(user).subscribe((response) => {
       if(response.registration){
         response.token && localStorage.setItem('token',response.token);
+        this.loader = false;
         this.router.navigate(['/']);
       }else{
+        this.loader = false;
         this.toast.error(response.message);
       };
+    },
+    () => {
+      this.loader = false;
     }
     )
-    this.loader = false;
   };
 }

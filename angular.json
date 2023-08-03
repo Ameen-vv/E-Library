@@ -30,6 +30,9 @@
               "node_modules/sweetalert2/src/sweetalert2.scss"
 
             ],
+            "allowedCommonJsDependencies": [
+              "sweetalert2"
+            ],
             "scripts": []
           },
           "configurations": {

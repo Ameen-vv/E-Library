@@ -11,7 +11,7 @@ import { HotToastService } from '@ngneat/hot-toast';
 })
 export class ProductCardComponent {
   @Input() book!:BookCard;
-
+  loader:boolean = false;
   constructor(private router : Router,private userService : UserService,private toast : HotToastService){};
 
   getProDetails(id?:string):void{
@@ -19,9 +19,14 @@ export class ProductCardComponent {
   };
 
   addToCart(proId:string | undefined):void{
+    this.loader = true;
     this.userService.addToCart(proId as string).subscribe(
       (response) => {
         response.ok && this.toast.success('Added to Cart');
+        this.loader = false;
+      },
+      ()=>{
+        this.loader = false;
       }
       )
   };

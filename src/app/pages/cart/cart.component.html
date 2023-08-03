@@ -5,7 +5,7 @@
       <div class="title">
         <div class="flex items-center justify-between">
           <h4 class="font-bold">Shopping Cart</h4>
-          <div class="text-right text-muted">3 items</div>
+          <div class="text-right text-muted">{{cart.length}} items</div>
         </div>
       </div>
       <ng-container *ngIf="!loader">
@@ -16,7 +16,7 @@
       <div class="w-full flex h-96 justify-center items-center" *ngIf="loader">
         <app-loader [size] = "10"></app-loader>
       </div>
-      <ng-container *ngIf="!loader" >
+      <ng-container *ngIf="!loader" class="h-full">
         <div class="border-t border-b mb-2 overflow-x-auto " *ngFor="let item of cart" >
           <div class="flex flex-col sm:flex-row items-center">
             <div class="w-full sm:w-1/6 mb-2 sm:mb-0 sm:mr-4">
@@ -30,7 +30,7 @@
               <a class="border px-2">{{item.quantity}}</a>
               <button class="border px-2 ms-1 cursor-pointer" (click)='incrementPro(item.product._id)'>+</button>
             </div>
-            <div class="w-full sm:w-1/6 flex items-center justify-center sm:justify-end">
+            <div class="w-full sm:w-1/6 flex items-center justify-center sm:justify-end ms-1">
               {{item.product.price | currency : 'INR'}} <span class="close cursor-pointer font-bold text-md text-color5" (click)="removeCartItem(item.product._id)">&#10005;</span>
             </div>
           </div>
@@ -39,7 +39,6 @@
       
       
 
-      <div class="back-to-shop mt-4 "><a href="#">&leftarrow;</a><span class="text-muted">Back to shop</span></div>
     </div>
 
     <div class="summary bg-slate-100 h-full">
@@ -50,7 +49,7 @@
 
       <div class="flex justify-between" *ngFor = "let i of cart">
         <div class="w-1/2 text-sm  overflow-hidden font-medium">{{i.product.title | bulletin}}</div>
-        <div class="w-1/2 text-right text-sm font-medium"> + {{i.quantity * i.product.price | currency : 'INR'}} </div>
+        <div class="w-1/2 text-right text-sm font-medium "> + {{i.quantity * i.product.price | currency : 'INR'}} </div>
       </div>
 
 
