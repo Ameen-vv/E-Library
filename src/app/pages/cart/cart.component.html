@@ -22,7 +22,7 @@
             <div class="w-full sm:w-1/6 mb-2 sm:mb-0 sm:mr-4">
               <img class="w-full" [src]="item.product.image">
             </div>
-            <div class="w-full sm:w-4/6 mb-2 sm:mb-0">
+            <div class="w-full sm:w-4/6 mb-2 sm:mb-0 cursor-pointer" (click)="getProDetails(item.product._id)">
               <div class="text-muted">{{item.product.title}}</div>
             </div>
             <div class="w-full sm:w-1/6 flex items-center justify-center sm:justify-end">

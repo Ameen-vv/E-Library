@@ -11,7 +11,9 @@ import { BookService } from 'src/app/services/book.service';
 export class ProductListComponent implements OnInit {
   products!:BookCard[];
   loader:boolean = false;
+
   constructor(private bookService : BookService,private toast : HotToastService){}; 
+  
   ngOnInit(): void {
       this.loader = true;
       this.bookService.getAllBooks().subscribe(

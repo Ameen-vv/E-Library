@@ -18,9 +18,12 @@ export class HomeComponent implements OnInit {
       (response)=>{
         this.trending = response.data.slice(0,9);
         this.newArrivals = response.data.slice(9);
+        this.loading = false; 
+      },
+      ()=>{
+        this.loading = false; 
       }
     )
-    this.loading = false; 
   }
 
 

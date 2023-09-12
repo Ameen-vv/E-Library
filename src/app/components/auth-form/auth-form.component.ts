@@ -27,7 +27,6 @@ export class AuthFormComponent {
           password: this.formTemplate.value.password,
           confirmPass: this.formTemplate.value.confirmPass
         };
-        console.log(user)
         this.formSubmit.emit(user);
       }
     } else if (this.formType === 'signIn') {

@@ -1,4 +1,5 @@
 import { Component,OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HotToastService } from '@ngneat/hot-toast';
 import { CartModel } from 'src/app/models/userModels';
 import { UserService } from 'src/app/services/user.service';
@@ -14,7 +15,7 @@ export class CartComponent implements OnInit {
     cart:CartModel[] = [];
     total!:number;
     loader:boolean = true;
-    constructor(private userService : UserService,private toast : HotToastService){}
+    constructor(private userService : UserService,private toast : HotToastService,private router : Router){}
     ngOnInit(): void {
         this.userService.getCartItems().subscribe(
           (response) => {
@@ -81,4 +82,8 @@ export class CartComponent implements OnInit {
       })
       this.userService.removeFromCart(id as string,'dec').subscribe();
     }
+
+    getProDetails(id?:string):void{
+      this.router.navigate(['/productPage',id]);
+    };
 }
